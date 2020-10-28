@@ -17,20 +17,19 @@ class CryptoPrices extends Component {
     async componentDidMount() {
         const myPrices = [];
         const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=35&page=1&sparkline=false';
-        let currentPrices = await axios.get(URL)
-            .then(response => {
-                // const prices = response.data;
-                let btc = response.data[0];
-                let eth = response.data[1];
-                let xrp = response.data[3];
-                let bch = response.data[4];
-                let xlm = response.data[16];
-                let etc = response.data[33];
-                myPrices.push(btc, eth, xrp, bch, xlm, etc);
-                this.setState({ prices: myPrices, isLoading: false  });
-                // console.log("PRICES:", this.state.prices)
-        });
-    }
+        let currentPrices = await axios.get(URL);
+            // const prices = response.data; --> A variable to check if we are getting the any response.
+            let btc = currentPrices.data[0];
+            let eth = currentPrices.data[1];
+            let xrp = currentPrices.data[3];
+            let bch = currentPrices.data[4];
+            let xlm = currentPrices.data[16];
+            let etc = currentPrices.data[33];
+            myPrices.push(btc, eth, xrp, bch, xlm, etc);
+            this.setState({ prices: myPrices, isLoading: false });
+            // console.log("PRICES:", this.state.prices) --> Checking myPrice array's (line 18) current contidion. 
+    };
+    
     render() { 
         return (  
             <div className="container">
