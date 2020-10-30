@@ -11,7 +11,7 @@ class CryptoCard extends Component {
     async componentDidMount() {
         const newCoins = await this.props.editedCoins;
         this.setState({ rt_coins: newCoins });
-        console.log(this.state.rt_coins);
+        // console.log(this.state.rt_coins);
     }
     
 

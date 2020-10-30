@@ -29,7 +29,15 @@ class CryptoPrices extends Component {
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getCurrentPrices();
+        setInterval(() => {
+            this.getCurrentPrices();
+            console.log("just recall prices!");
+        }, 600000);
+    };
+    
+    getCurrentPrices = async () => {
         const myPrices = [];
         const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=33&page=1&sparkline=false';
         let currentPrices = await axios.get(URL);
@@ -51,8 +59,8 @@ class CryptoPrices extends Component {
 
             myPrices.push(btc, eth, xrp, bcn, xlm, etc);
             this.setState({ coins: myPrices, isLoading: false });
-            // console.log("PRICES:", this.state.coins) // --> Checking myPrice array's (line 18) current contidion. 
-    };
+            console.log("Prices: ", this.state.coins); // --> Checking myPrice array's (line 18) current contidion.
+    }
 
     render() { 
         return (  
