@@ -1,39 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import BTC from '../images/BTC.svg';
-// import ETH from '../images/ETH.svg';
-// import XLM from '../images/XLM.svg';
-// import XRP from '../images/XRP.svg';
-// import ETC from '../images/ETC.svg';
-// import BCN from '../images/BCN.svg';
+class CryptoCard extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            rt_coins: []
+        }
+    }
 
-const CryptoCard = (props) => {
-    const prices = props.prices.map((price) => {
-    return <div><p>{price.name}</p></div>
-    }) ;
+    async componentDidMount() {
+        const newCoins = await this.props.editedCoins;
+        this.setState({ rt_coins: newCoins });
+        console.log(this.state.rt_coins);
+    }
     
 
-    return (  
-        <div>
-            {/* <div className="card" style={{ width: "13rem" }}> */}
-            <img src={BTC} alt="image cap" style={{ width: '15%', padding: 15 }} />
-            {/* <img src={ETH} alt="image cap" style={{ width: '15%', padding: 15 }} />
-            
-            <img src={ETC} alt="image cap" style={{ width: '15%', padding: 15 }} />
-            <img src={BCN} alt="image cap" style={{ width: '15%', padding: 15 }} />
-            <img src={XRP} alt="image cap" style={{ width: '15%', padding: 15 }} />
-            
-            <img src={XLM} alt="image cap" style={{ width: '15%', padding: 10 }} /> */}
-            
-                {/* <div className="card-body">
-                    <h5 className="card-title text-info">{prices[1].name}</h5>
-                    <p className="card-text lead text-info">${prices[1].current_price}</p> */}
-                    {/* <a href="#" className="btn btn-outline-info">Go somewhere</a> */}
-                {/* </div> */}
-            {/* </div> */}
-            {prices}
-        </div>
-    );
+    render() { 
+    
+        return (  
+            <div className="mt-4">
+                <div className="coin_list row mt-4">
+                    {this.state.rt_coins.map(coin => (
+                        <div className="col-4 col-md-2 mt-4" key={coin.id}>
+                            <img src={coin.icon} alt="image cap" />
+                            <div className="align-bottom py-3">
+                                <h5 className="meduim">{coin.name}</h5>
+                                <p className="text-warning small">${coin.current_price.toFixed(2)}</p>
+                            </div>
+                    </div>
+                    ))}
+
+                    
+                    {/* <div className="col-4 col-sm-4 col-md-2 col-lg-4 col-xl-2" style={{border:"1px solid #333"}}>
+                        <img src={BTC} alt="image cap"/>
+                    </div>
+                    <div className="col-4 col-sm-4 col-md-2 col-lg-4 col-xl-2" style={{border:"1px solid #333"}}>
+                        <img src={BTC} alt="image cap"/>
+                    </div>
+                    <div className="col-4 col-sm-4 col-md-2 col-lg-4 col-xl-2" style={{border:"1px solid #333"}}>
+                        <img src={BTC} alt="image cap"/>
+                    </div>
+                    <div className="col-4 col-sm-4 col-md-2 col-lg-4 col-xl-2" style={{border:"1px solid #333"}}>
+                        <img src={BTC} alt="image cap"/>
+                    </div>
+                    <div className="col-4 col-sm-4 col-md-2 col-lg-4 col-xl-2" style={{border:"1px solid #333"}}>
+                        <img src={BTC} alt="image cap"/>
+                    </div> */}
+                </div>  
+            </div>
+        );
+    }
 }
  
 export default CryptoCard;

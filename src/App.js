@@ -17,7 +17,7 @@ class App extends Component {
     render() { 
         return ( 
             <div className="App text-light">
-                <h1 className="display-3">Crypto Tracker</h1>
+                <h1 className="display-3 pt-4">Crypto Tracker</h1>
                 <CryptoPrices />
                 <Footer />
             </div>
