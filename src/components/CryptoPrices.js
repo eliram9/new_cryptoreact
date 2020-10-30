@@ -31,10 +31,11 @@ class CryptoPrices extends Component {
 
     componentDidMount() {
         this.getCurrentPrices();
+        // Recall coins prices every 1 hour.
         setInterval(() => {
             this.getCurrentPrices();
             console.log("just recall prices!");
-        }, 600000);
+        }, 3600000);
     };
     
     getCurrentPrices = async () => {

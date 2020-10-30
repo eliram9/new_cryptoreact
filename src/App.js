@@ -5,8 +5,6 @@ import './App.css';
 import CryptoPrices from './components/CryptoPrices';
 import Footer from './components/Footer';
 
-const coin = 'ETH'
-
 class App extends Component {
     constructor(props) {
         super(props);
