@@ -1,82 +1,124 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
 // In this component we will make API call to get current cryprto prices & new crypto icons
-import axios from 'axios';
-import './CryptoPrices.css';
-import CryptoCard from './CryptoCard';
+// import axios from 'axios';
+// import './CryptoPrices.css';
+// import CryptoCard from './CryptoCard';
 
-import BTC from '../images/BTC.svg';
-import ETH from '../images/ETH.svg';
-import XLM from '../images/XLM.svg';
-import XRP from '../images/XRP.svg';
-import ETC from '../images/ETC.svg';
-import BCN from '../images/BCN.svg';
+// import BTC from '../images/BTC.svg';
+// import ETH from '../images/ETH.svg';
+// import XLM from '../images/XLM.svg';
+// import XRP from '../images/XRP.svg';
+// import ETC from '../images/ETC.svg';
+// import BCN from '../images/BCN.svg';
 
 
-const btcIcon = {iconId: 0, icon: BTC};
-const ethIcon = {imgId: 1, icon: ETH};
-const xrpIcon = {iconId: 2, icon: XRP};
-const bcnIcon = {imgId: 3, icon: BCN};
-const xlmIcon = {iconId: 4, icon: XLM};
-const etcIcon = {imgId: 5, icon: ETC};
+// const btcIcon = {iconId: 0, icon: BTC};
+// const ethIcon = {imgId: 1, icon: ETH};
+// const xrpIcon = {iconId: 2, icon: XRP};
+// const bcnIcon = {imgId: 3, icon: BCN};
+// const xlmIcon = {iconId: 4, icon: XLM};
+// const etcIcon = {imgId: 5, icon: ETC};
 
-class CryptoPrices extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            isLoading: true,
-            coins: []
-        }
-    }
+// class CryptoPrices extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = { 
+//             isLoading: true,
+//             coins: []
+//         }
+//     }
 
-    componentDidMount() {
-        this.getCurrentPrices();
-        // Recall coins prices every 1 hour.
-        setInterval(() => {
-            this.getCurrentPrices();
-            console.log("just recall prices!");
-        }, 3600000);
-    };
+//     componentDidMount() {
+//         this.getCurrentPrices();
+//         Recall coins prices every 5 minutes.
+//         setInterval(() => {
+//             this.getCurrentPrices();
+//             console.log("just recall prices!");
+//         }, 300000);
+//     };
     
-    getCurrentPrices = async () => {
-        const myPrices = [];
+//     getCurrentPrices = async () => {
+//         const myPrices = [];
+//         const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=33&page=1&sparkline=false';
+//         let currentPrices = await axios.get(URL);
+//             onst prices = response.data; --> A variable to check if we are getting the any response.
+//             let btc = currentPrices.data[0];
+//             let eth = currentPrices.data[1];
+//             let xrp = currentPrices.data[3];
+//             let bcn = currentPrices.data[4];
+//             let xlm = currentPrices.data[16];
+//             let etc = currentPrices.data[32];
+
+//             Adding to each coin object the new icon that I want to dispaly
+//             btc = {...btc, ...btcIcon};
+//             eth = {...eth, ...ethIcon};
+//             xrp = {...xrp, ...xrpIcon};
+//             bcn = {...bcn, ...bcnIcon};
+//             xlm = {...xlm, ...xlmIcon};
+//             etc = {...etc, ...etcIcon};
+
+//             myPrices.push(btc, eth, xrp, bcn, xlm, etc);
+//             this.setState({ coins: myPrices, isLoading: false });
+//             console.log("Prices: ", this.state.coins); 
+//             --> Checking myPrice array's (line 18) current contidion.
+//     }
+
+//     render() { 
+//         return (  
+//             <div className="container">
+//                 {this.state.isLoading ? (
+//                     <div>
+//                         <div id='loader'></div> 
+//                         <h4>Loading...</h4>
+//                     </div>
+//                 ) : (
+//                     <CryptoCard editedCoins={this.state.coins} />
+//                 )}
+//             </div>
+//         );
+//     }
+// }
+ 
+// export default CryptoPrices;
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const CurrentPrices = () => {
+    // Instead of using class components, we pass the an array with [state, setState function] = useState('initial state value')
+    const [currentPrice, setCurrentPrice] = useState([]); 
+    let intervalConst;
+
+    useEffect(() => {
+        getData();
+
+        // Make a call every 10 seconds
+        intervalConst = setInterval(() => {
+            getData()
+        }, 10000)
+    }, [])
+
+    const getData = async () => {
+        const currentCoinsPrice = [];
         const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=33&page=1&sparkline=false';
-        let currentPrices = await axios.get(URL);
-            // const prices = response.data; --> A variable to check if we are getting the any response.
-            let btc = currentPrices.data[0];
-            let eth = currentPrices.data[1];
-            let xrp = currentPrices.data[3];
-            let bcn = currentPrices.data[4];
-            let xlm = currentPrices.data[16];
-            let etc = currentPrices.data[32];
-
-            // Adding to each coin object the new icon that I want to dispaly
-            btc = {...btc, ...btcIcon};
-            eth = {...eth, ...ethIcon};
-            xrp = {...xrp, ...xrpIcon};
-            bcn = {...bcn, ...bcnIcon};
-            xlm = {...xlm, ...xlmIcon};
-            etc = {...etc, ...etcIcon};
-
-            myPrices.push(btc, eth, xrp, bcn, xlm, etc);
-            this.setState({ coins: myPrices, isLoading: false });
-            console.log("Prices: ", this.state.coins); // --> Checking myPrice array's (line 18) current contidion.
+        const getCurentData = await axios.get(URL);
+        let btc = getCurentData.data[0];
+        let eth = getCurentData.data[1];
+        let xrp = getCurentData.data[3];
+        let bcn = getCurentData.data[4];
+        let xlm = getCurentData.data[16];
+        let etc = getCurentData.data[32];
+        currentCoinsPrice.push(btc, eth, xrp, bcn, xlm, etc);
+        console.log(currentCoinsPrice);
+        setCurrentPrice(currentCoinsPrice);
     }
 
-    render() { 
-        return (  
-            <div className="container">
-                {this.state.isLoading ? (
-                    <div>
-                        <div id='loader'></div> 
-                        <h4>Loading...</h4>
-                    </div>
-                ) : (
-                    <CryptoCard editedCoins={this.state.coins} />
-                )}
-            </div>
-        );
-    }
+    return ( 
+        <div>
+            {/* <h1>${currentPrice[1]}</h1> */}
+        </div>
+    );
 }
  
-export default CryptoPrices;
+export default CurrentPrices;
