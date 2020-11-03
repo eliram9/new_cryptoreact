@@ -9,6 +9,7 @@ class Footer extends Component {
     }
 
     componentDidMount() {
+        // Edit year function
         this.timerID = setInterval(() => {
             this.setState({time: new Date()});
             // Check year every 24 hours

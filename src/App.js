@@ -16,7 +16,7 @@ class App extends Component {
         return ( 
             <div className="App text-light">
                 <h1 className="display-3 pt-4">Crypto Tracker</h1>
-                {/* <CryptoPrices /> */}
+                <CryptoPrices />
                 <Footer />
             </div>
         );

@@ -1,0 +1,12 @@
+.coin_list h5 {
+    color: #d8d8d8;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 500;
+}
+
+.coin_list .price {
+    color: #69ffff;
+    font-family: 'Exo 2', sans-serif;
+    /* font-weight: ; */
+    font-weight: 300;
+}
