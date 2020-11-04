@@ -11,8 +11,8 @@ const CryptoCard = ({ coins }) => {
                     <div className="col-4 col-md-2 mt-4" key={coin.id}>
                         <img src={coin.iconImage} alt="image cap" width="100px" />
                         <div className="align-bottom py-3">
-                            <h5 className="meduim">{coin.name}</h5>
-                            <p className="price">${coin.current_price.toFixed(2)}</p>
+                            <h5 className="coin_name">{coin.name}</h5>
+                            <p className="coin_price">${coin.current_price.toFixed(2)}</p>
                         </div>
                     </div>
                 ))}

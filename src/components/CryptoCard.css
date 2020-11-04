@@ -1,12 +1,51 @@
-.coin_list h5 {
+.coin_list .coin_name {
     color: #d8d8d8;
     font-family: 'Exo 2', sans-serif;
     font-weight: 500;
 }
 
-.coin_list .price {
+.coin_list .coin_price {
     color: #69ffff;
     font-family: 'Exo 2', sans-serif;
     /* font-weight: ; */
     font-weight: 300;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 766px) {
+    .coin_list img {
+        width: 65px
+    }
+    .coin_list .coin_name {
+        font-size: 12px;
+    }
+    .coin_list .coin_price {
+        font-size: 15px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 767px) and (max-device-width : 1024px) {
+    .coin_list img {
+        width: 75px
+    }
+    .coin_list .coin_name {
+        font-size: 11px;
+    }
+    .coin_list .coin_price {
+        font-size: 13px;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1025px) {
+    .coin_list img {
+        width: 100px
+    }
+    .coin_list .coin_name {
+        font-size: 20px;
+    }
+    .coin_list .coin_price {
+        font-size: 18px;
+    }
 }

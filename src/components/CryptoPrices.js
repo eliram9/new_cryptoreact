@@ -26,13 +26,13 @@ const CurrentPrices = () => {
 
     const getData = async () => {
         const currentCoinsPrice = [];
-        const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=34&page=1&sparkline=false';
+        const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false';
         const getCurentData = await axios.get(URL);
         let btc = getCurentData.data[0];
         let eth = getCurentData.data[1];
         let xrp = getCurentData.data[3];
         let bcn = getCurentData.data[4];
-        let xlm = getCurentData.data[16];
+        let xlm = getCurentData.data[17];
         let etc = getCurentData.data[33];
 
         // Add our icons as a new property to each coin object
