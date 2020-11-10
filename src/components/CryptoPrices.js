@@ -31,9 +31,9 @@ const CurrentPrices = () => {
         let btc = getCurentData.data[0];
         let eth = getCurentData.data[1];
         let xrp = getCurentData.data[3];
-        let bcn = getCurentData.data[4];
-        let xlm = getCurentData.data[17];
-        let etc = getCurentData.data[33];
+        let bcn = getCurentData.data[5];
+        let xlm = getCurentData.data[16];
+        let etc = getCurentData.data[35];
 
         // Add our icons as a new property to each coin object
         btc.iconImage = BTC;
