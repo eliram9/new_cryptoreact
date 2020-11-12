@@ -7,7 +7,7 @@ import './SearchResult.css';
 const SearchResult = () => {
     const [coin, setCoin] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const [searchHistory, setSearchHistory] = useState([]); // --> next step for serach results box
+    const [searchHistory, setSearchHistory] = useState([]); // --> my next step for serach results box
     useEffect(() => {
         searchCoin();
     }, [])
