@@ -1,0 +1,47 @@
+.search {
+    margin-top: 50px;
+}
+
+.form-control {
+    background-color: #7e7e7e80!important;
+    color: #e4e4e4!important;
+    border: none!important;
+}
+
+.form-control:focus {
+    background-color: #7e7e7e80!important;
+    color: #e4e4e4!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #808080;
+  }
+  .form-control:-moz-placeholder {
+    color: #777777;
+  }
+  .form-control::-moz-placeholder {
+    color: #808080;
+  }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+    .search {
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .search {
+        margin-top: 7px;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1025px) {
+    .search {
+        margin-top: 20px;
+    }
+}
+    

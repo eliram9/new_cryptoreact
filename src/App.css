@@ -12,6 +12,7 @@
     font-family: 'Exo 2', sans-serif;
 }
 
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
     .App h1 {

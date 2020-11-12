@@ -1,0 +1,29 @@
+.box_result {
+    margin: 0 auto;
+    background-color: #49494980;
+    border-radius: 5px;
+    width: 55%;
+}
+
+.box_result h4 {
+    color: #d8d8d8;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+    .box_result {
+        width: 86%;
+    } 
+    .box_result img {
+        width: 10%;
+    }
+    .box_result h4 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-device-width : 768px) {
+    .box_result img {
+        width: 5%;
+    }
+}

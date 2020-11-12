@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
+import './SearchBar.css';
+
 const SearchBar = ({ searchCoin }) => {
-    const [searchInput, setSearchInput] = useState("Enter Coin's name");
+    const [searchInput, setSearchInput] = useState("Enter coin's name");
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         searchCoin(searchInput);
-        setSearchInput('');
+        setSearchInput(evt.target.reset());
     }
 
    
@@ -22,7 +24,8 @@ const SearchBar = ({ searchCoin }) => {
                                    id="inlineFormInput" 
                                    name="searchInput"
                                    placeholder={searchInput} 
-                                   onChange={evt => setSearchInput(evt.target.value)}
+                                   onChange={evt => setSearchInput(evt.target.value.toLocaleLowerCase())}
+                                   required
                             />
                         </div>
                         {/* Button */}

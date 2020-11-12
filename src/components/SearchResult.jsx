@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import SearchBar from './SearchBar';
+import './SearchResult.css';
 
 const SearchResult = () => {
     const [coin, setCoin] = useState('');
@@ -13,35 +14,41 @@ const SearchResult = () => {
 
     const searchCoin = async (searchInput) => {
         //const coinResult = [];
-        const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${searchInput}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
+        const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${searchInput}&order=market_cap_desc&per_page=2000&page=1&sparkline=false`;
         const getSearchedCoin = await axios.get(URL);
         let results = await getSearchedCoin.data;
         
-            for(var index in results) {
-                var coin = results[index];
+            for(let index in results) {
+                let coin = results[index];
                 searchHistory.push(coin);
                 //setting the last coin here
                 setCoin(coin);
                 setIsLoading(false);
-                // console.log(coin.current_price)
+                // console.log(coin)
             }
             // console.log(searchHistory);
+
     }
     
 
     return ( 
-        <div>
+        <div className="searchResult">
             <SearchBar searchCoin={searchCoin} />
+                <div className="container">
                 {isLoading ? (
                     <div>
                         <p></p>
                     </div>
                     ) : (
-                        <h4 className="lead text-info">
-                            {`${coin.id.toUpperCase()}: $${coin.current_price.toFixed(2)}`}
-                        </h4>
+                        <div className="box_result">
+                            <h4 className="lead p-2">
+                                <img src={coin.image} alt="coin-icon" className="mr-1" />
+                                {` ${coin.name} - ${coin.symbol.toUpperCase()} - $${coin.current_price.toFixed(2)}`}
+                            </h4>
+                        </div>
                     )
                 }
+                </div>
         </div>
     );
 }
