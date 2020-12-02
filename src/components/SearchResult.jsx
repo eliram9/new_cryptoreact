@@ -13,21 +13,26 @@ const SearchResult = () => {
     }, [])
 
     const searchCoin = async (searchInput) => {
-        //const coinResult = [];
+        // const coinSearchResult = [];
         const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${searchInput}&order=market_cap_desc&per_page=2000&page=1&sparkline=false`;
+        // const API_KEY = '5f1669f9639c90e3b179bbd4e9569d83195316fd3252fdf9a54b0604120f1d1e'
+        // const URL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${searchInput}&tsyms=USD&api_key={${API_KEY}}`;
         const getSearchedCoin = await axios.get(URL);
         let results = await getSearchedCoin.data;
-        
-            for(let index in results) {
-                let coin = results[index];
-                searchHistory.push(coin);
-                //setting the last coin here
-                setCoin(coin);
-                setIsLoading(false);
-                // console.log(coin)
+        console.log(results);
+;
+        // coinSearchResult.push(results);
+        // console.log(coinSearchResult);
+
+            for (let index in results) {
+                    let coin = results[index];
+                    searchHistory.push(coin);
+                    //setting the last coin here
+                    setCoin(coin);
+                    setIsLoading(false);
+                    // console.log(coin)
             }
             // console.log(searchHistory);
-
     }
     
 

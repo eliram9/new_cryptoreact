@@ -10,10 +10,10 @@ import ETH from '../images/ETH.svg';
 import XLM from '../images/XLM.svg';
 import XRP from '../images/XRP.svg';
 import ETC from '../images/ETC.svg';
-import BCN from '../images/BCN.svg';
+import BCH from '../images/BCH.svg';
 
 
-const CurrentPrices = () => {
+const CurrentPrices = (props) => {
     const [currentPrices, setCurrentPrices] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     let intervalConst;
@@ -26,31 +26,30 @@ const CurrentPrices = () => {
     }, [])
 
     const getData = async () => {
-        const currentCoinsPrice = [];
-        const URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=70&page=1&sparkline=false';
+        const currentCoinsData = [];
+        const API_KEY = '5f1669f9639c90e3b179bbd4e9569d83195316fd3252fdf9a54b0604120f1d1e'
+        const URL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,BCH,XLM,ETC&tsyms=USD&api_key={${API_KEY}}`;
         const getCurentData = await axios.get(URL);
-        let btc = getCurentData.data[0];
-        let eth = getCurentData.data[1];
-        let xrp = getCurentData.data[3];
-        let bcn = getCurentData.data[5];
-        let xlm = getCurentData.data[16];
-        let etc = getCurentData.data[37];
+        let btc = getCurentData.data.RAW.BTC.USD;
+        let eth = getCurentData.data.RAW.ETH.USD;
+        let xrp = getCurentData.data.RAW.XRP.USD;
+        let bch = getCurentData.data.RAW.BCH.USD;
+        let xlm = getCurentData.data.RAW.XLM.USD;
+        let etc = getCurentData.data.RAW.ETC.USD;
 
-        // Add our icons as a new property to each coin object
+        // Add our icons as a new property to each coin object that was created
         btc.iconImage = BTC;
         eth.iconImage = ETH;
         xrp.iconImage = XRP;
-        bcn.iconImage = BCN;
+        bch.iconImage = BCH;
         xlm.iconImage = XLM;
         etc.iconImage = ETC;
 
-        // Push all the editted objects on one array
-        currentCoinsPrice.push(btc, eth, xrp, bcn, xlm, etc);
-        
-        // Update the currentPrices "state" & isLoading = false
-        setCurrentPrices(currentCoinsPrice);
-        setIsLoading(false);
-        // console.log(currentCoinsPrice);
+        // Pushing/updating the new coin objects to the currentCoinsData we declared in line 29
+        currentCoinsData.push(btc, eth, xrp, bch, xlm, etc);
+        setCurrentPrices(currentCoinsData);
+        // console.log(currentCoinsData);
+        setIsLoading(false);       
     }
 
     return ( 
