@@ -50,9 +50,10 @@ const SearchResult = () => {
     return ( 
         <div className="searchResult">
             <SearchBar searchCoin={searchCoin} />
-            {/* In case the coin was not found */}
-            <h4>{notFound}</h4>
                 <div className="container">
+                {/* In case the coin was not found */}
+                <h4>{notFound}</h4>
+
                 {isLoading ? (
                     <div>
                         <p></p>
