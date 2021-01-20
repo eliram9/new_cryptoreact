@@ -15,7 +15,8 @@ import BCH from '../images/BCH.svg';
 
 const CurrentPrices = (props) => {
     const [currentPrices, setCurrentPrices] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+    const [assets, setAssets] = useState('');
     let intervalConst;
 
     useEffect(() => {
@@ -36,6 +37,10 @@ const CurrentPrices = (props) => {
         let bch = getCurentData.data.RAW.BCH.USD;
         let xlm = getCurentData.data.RAW.XLM.USD;
         let etc = getCurentData.data.RAW.ETC.USD;
+        
+        // My personal total Assets
+        let totalAssets = Math.floor(btc.PRICE * 0.08309080);
+    
 
         // Add our icons as a new property to each coin object that was created
         btc.iconImage = BTC;
@@ -49,6 +54,7 @@ const CurrentPrices = (props) => {
         currentCoinsData.push(btc, eth, xrp, bch, xlm, etc);
         setCurrentPrices(currentCoinsData);
         // console.log(currentCoinsData);
+        setAssets(totalAssets);
         setIsLoading(false);       
     }
 
@@ -62,6 +68,10 @@ const CurrentPrices = (props) => {
                 ) : (
                     <CryptoCard coins={currentPrices} />   
             )}
+            <div className="assets">
+                <p>Total Assets: ${assets}</p>
+            </div>
+            
         </div>
     );
 }

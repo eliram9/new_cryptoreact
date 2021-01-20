@@ -17,12 +17,12 @@ const SearchResult = () => {
 
     const searchCoin = async (searchInput) => {
         // const coinResult = [];
-        const API_KEY = '5f1669f9639c90e3b179bbd4e9569d83195316fd3252fdf9a54b0604120f1d1e'
-        var URL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${searchInput}&tsyms=USD&api_key={${API_KEY}}`;
+        // const API_KEY = '5f1669f9639c90e3b179bbd4e9569d83195316fd3252fdf9a54b0604120f1d1e'
+        // var URL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${searchInput}&tsyms=USD&api_key={${API_KEY}}`;
         setNotFound('');
         setCoin('');
         setIsLoading(true)
-        URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${searchInput}&order=market_cap_desc&per_page=2000&page=1&sparkline=false`;
+        URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${searchInput}&order=market_cap_desc&per_page=7000&page=1&sparkline=false`;
         const getSearchedCoin = await axios.get(URL);
         let results = await getSearchedCoin.data;
         console.log(results);
