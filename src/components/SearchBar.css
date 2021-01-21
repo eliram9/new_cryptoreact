@@ -45,7 +45,7 @@
     }
 }
 
-.secondInput {
+/* .secondInput {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,5 +82,5 @@
 
 .secondSearch.active .btn {
     transform: translateX(173px);
-}
+} */
     
