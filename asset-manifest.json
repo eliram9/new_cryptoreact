@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/new_cryptoreact/static/css/main.e35b44d1.chunk.css",
-    "main.js": "/new_cryptoreact/static/js/main.d9f43a81.chunk.js",
-    "main.js.map": "/new_cryptoreact/static/js/main.d9f43a81.chunk.js.map",
+    "main.css": "/new_cryptoreact/static/css/main.045fc557.chunk.css",
+    "main.js": "/new_cryptoreact/static/js/main.bb84fda7.chunk.js",
+    "main.js.map": "/new_cryptoreact/static/js/main.bb84fda7.chunk.js.map",
     "runtime-main.js": "/new_cryptoreact/static/js/runtime-main.dd3ad05a.js",
     "runtime-main.js.map": "/new_cryptoreact/static/js/runtime-main.dd3ad05a.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/new_cryptoreact/static/css/2.20aa2d7b.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.ba2967b5.chunk.js.map": "/new_cryptoreact/static/js/3.ba2967b5.chunk.js.map",
     "index.html": "/new_cryptoreact/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/new_cryptoreact/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.e35b44d1.chunk.css.map": "/new_cryptoreact/static/css/main.e35b44d1.chunk.css.map",
+    "static/css/main.045fc557.chunk.css.map": "/new_cryptoreact/static/css/main.045fc557.chunk.css.map",
     "static/js/2.7576c858.chunk.js.LICENSE.txt": "/new_cryptoreact/static/js/2.7576c858.chunk.js.LICENSE.txt",
     "static/media/BCH.bd7aac44.svg": "/new_cryptoreact/static/media/BCH.bd7aac44.svg",
     "static/media/BTC.ef7c2565.svg": "/new_cryptoreact/static/media/BTC.ef7c2565.svg",
@@ -26,7 +26,7 @@
     "static/js/runtime-main.dd3ad05a.js",
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.7576c858.chunk.js",
-    "static/css/main.e35b44d1.chunk.css",
-    "static/js/main.d9f43a81.chunk.js"
+    "static/css/main.045fc557.chunk.css",
+    "static/js/main.bb84fda7.chunk.js"
   ]
 }
