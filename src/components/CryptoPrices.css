@@ -1,3 +1,5 @@
+
+/* Start of Loading animation */
 #loader {
     display: block;
     position: relative;
@@ -32,7 +34,7 @@
     bottom: 15px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: rgb(93, 208, 244);
+    border-top-color: #5dd0f4;
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
 }
@@ -58,5 +60,26 @@
         -webkit-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
+    }
+}
+/* End of Loading animation */
+
+.assets {
+    border-radius: 15px;
+    padding: 10px;
+    width: 40%;
+    margin: 0 auto;
+    background-image: linear-gradient(#05050500, #4ca5c073, #00000000)
+}
+
+.assets p {
+    margin: 0;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+    .assets {
+        width: 100%;
+        border-radius: 25px;
     }
 }

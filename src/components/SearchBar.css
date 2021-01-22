@@ -1,11 +1,18 @@
 .search {
-    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.inputLine {
+    width: 75%;
 }
 
 .form-control {
     background-color: #7e7e7e80!important;
     color: #e4e4e4!important;
-    border: none!important;
+    border: none!important;    
 }
 
 .form-control:focus {
@@ -13,6 +20,10 @@
     color: #e4e4e4!important;
     border: none!important;
     box-shadow: none!important;
+}
+
+.form-control:hover input:focus {
+    color:red;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -29,6 +40,10 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
     .search {
         margin-top: 5px;
+    }
+
+    .inputLine {
+        width: 100%;
     }
 }
 
@@ -54,7 +69,6 @@
 
 .secondSearch {
     height: 70px;
-    background-color: #c7c7c7;
     position: relative;
 }
 
@@ -66,7 +80,7 @@
 }
 
 .secondSearch .btn {
-    background-color: royalblue;
+    color: #FBC108;
     font-size: 24px;
     height: 50px;
     width: 50px;
@@ -75,12 +89,16 @@
     position: absolute;
 }
 
-.secondSearch.active .input{
+.secondSearch:hover .input{
     width: 200px;
     transform: translateX(-25px);
 }
 
-.secondSearch.active .btn {
+.secondSearch:hover .input:focus {
+    color: red;
+}
+
+.secondSearch:hover .btn {
     transform: translateX(173px);
 } */
     

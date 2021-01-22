@@ -13,7 +13,7 @@ const SearchBar = ({ searchCoin }) => {
 
     return ( 
         <div className="search container">
-            <div className="">
+            <div className="inputLine">
             <h4 className="text-light lead">Search more coins</h4>
                 <form onSubmit={evt => handleSubmit(evt)}>
                     <div className="form-row align-items-center px-4 py-2">
@@ -30,13 +30,13 @@ const SearchBar = ({ searchCoin }) => {
                         {/* Button */}
                         <div className="col-auto">
                             <button type="submit" className="btn btn-outline-warning mb-2">
-                                <i class="fas fa-search"></i>
+                                <i className="fas fa-search"></i>
                             </button>
                         </div>
                     </div>
                     {/* <div className="secondInput">
-                        <div className="secondSearch active">
-                            <input type="text" className="input" placeholder="SEEEEarch"/>
+                        <div className="secondSearch">
+                            <input type="text" className="input" placeholder={searchInput} />
                             <button className="btn">
                                 <i className="fas fa-search"></i>
                             </button>

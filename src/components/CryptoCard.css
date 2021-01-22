@@ -27,7 +27,7 @@
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 767px) and (max-device-width : 1024px) {
     .coin_list img {
-        width: 75px
+        width: 75px;
     }
     .coin_list .coin_name {
         font-size: 11px;
@@ -40,7 +40,7 @@
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1025px) {
     .coin_list img {
-        width: 100px
+        width: 100px;
     }
     .coin_list .coin_name {
         font-size: 20px;
